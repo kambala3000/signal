@@ -1,6 +1,6 @@
 import React from 'react';
-import { FamilyMemberDataWithMenu, FoodGroup } from '../../types';
-import { FOOD_GROUP_TITLES } from '../../utils/constants';
+import { FamilyMemberDataWithMenu } from '../../types';
+import FamilyMenuItem from './FamilyMenuItem';
 
 interface Props {
   familyDataWithMenu: FamilyMemberDataWithMenu[];
@@ -10,25 +10,8 @@ interface Props {
 const FamilyMenu: React.FC<Props> = ({ familyDataWithMenu, resetForm }) => (
   <div>
     <h1>Here is your daily menu!</h1>
-    {familyDataWithMenu.map(({ memberId, name, gender, age, lactoseIntolerance, menu }) => (
-      <div key={memberId}>
-        <h3>{name}</h3>
-        <p>Gender: {gender}</p>
-        <p>Age: {age}</p>
-        <p>Lactose intolerance: {lactoseIntolerance ? '+' : '-'}</p>
-        {(Object.keys(menu) as FoodGroup[]).map(foodGroup => (
-          <div key={foodGroup}>
-            <h4>{FOOD_GROUP_TITLES[foodGroup]}</h4>
-            {menu[foodGroup].map(product => (
-              <div key={product.food}>
-                <p>
-                  {product.food} x{product.quantity} {product.srvg_sz}
-                </p>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+    {familyDataWithMenu.map(familyMemberData => (
+      <FamilyMenuItem key={familyMemberData.memberId} familyMemberData={familyMemberData} />
     ))}
     <button onClick={resetForm}>Back</button>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FamilyMemberForm from '../FamilyMemberForm';
-import { ActionType, FamilyMemberData } from '../../types';
+import FamilyMemberFormItem from '../FamilyMemberFormItem';
+import { FamilyMemberData } from '../../types';
 
 interface Props {
   familyData: FamilyMemberData[];
@@ -28,7 +28,7 @@ const FamilyForm: React.FC<Props> = ({
       </h1>
       <form onSubmit={onFormSubmit}>
         {familyData.map(familyMemberData => (
-          <FamilyMemberForm
+          <FamilyMemberFormItem
             key={familyMemberData.memberId}
             familyMemberData={familyMemberData}
             handleMemberDataChange={handleMemberDataChange}

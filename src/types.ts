@@ -29,12 +29,12 @@ export enum FoodGroup {
   MeatAndAlts = 'me',
 }
 
-export type Menu = {
+export type MenuByFoodGroup = {
   [key in FoodGroup]: ProductWithQuantity[];
 };
 
 export interface FamilyMemberDataWithMenu extends FamilyMemberData {
-  menu: Menu;
+  menu: MenuByFoodGroup;
 }
 
 export enum ActionType {

@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useMemo, useCallback } from 'react';
+import React, { useReducer, useState, useMemo } from 'react';
 
 import FamilyMenu from '../FamilyMenu';
 import FamilyForm from './FamilyForm';
@@ -31,15 +31,9 @@ const FamilyFormContainer: React.FC = () => {
   const handleMemberDataChange = (payload: Partial<FamilyMemberData>) =>
     dispatch({ type: ActionType.CHANGE_MEMBER_DATA, payload });
 
-  const addFamilyMember = useCallback(
-    () => dispatch({ type: ActionType.ADD_FAMILY_MEMBER }),
-    [dispatch]
-  );
-  const removeFamilyMember = useCallback(
-    (memberId: string) =>
-      dispatch({ type: ActionType.REMOVE_FAMILY_MEMBER, payload: { memberId } }),
-    [dispatch]
-  );
+  const addFamilyMember = () => dispatch({ type: ActionType.ADD_FAMILY_MEMBER });
+  const removeFamilyMember = (memberId: string) =>
+    dispatch({ type: ActionType.REMOVE_FAMILY_MEMBER, payload: { memberId } });
 
   return (
     <div>

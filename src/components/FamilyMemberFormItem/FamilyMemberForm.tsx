@@ -9,7 +9,7 @@ interface Props {
   removeFamilyMember: (memberId: string) => void;
 }
 
-const FamilyMemberForm: React.FC<Props> = ({
+const FamilyMemberFormItem: React.FC<Props> = ({
   familyMemberData,
   handleMemberDataChange,
   removeFamilyMember,
@@ -67,4 +67,4 @@ const FamilyMemberForm: React.FC<Props> = ({
   );
 };
 
-export default FamilyMemberForm;
+export default FamilyMemberFormItem;

@@ -8,7 +8,7 @@ import {
   Product,
   ProductWithQuantity,
   FamilyMemberDataWithMenu,
-  Menu,
+  MenuByFoodGroup,
 } from '../types';
 import findServings from './findServings';
 
@@ -30,7 +30,7 @@ const calculateDailyMenu = (familyData: FamilyMemberData[]): FamilyMemberDataWit
         foodCategories.map(category => getRandomProductByCategory(category)!)
       );
       return acc;
-    }, {} as Menu);
+    }, {} as MenuByFoodGroup);
 
     return { ...memberData, menu };
   });
