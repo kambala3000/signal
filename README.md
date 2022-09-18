@@ -1,23 +1,11 @@
 # Signal
 
-The purpose of this project is to maximize the amount of signal we receive about each candidate when they complete our code test.  The perfect code test maximizes signal while minimizing time.  We value feedback.  If you love, hate, or otherwise wish to help us improve our signal project please open an issue.  
+https://signal-six.vercel.app/
 
-# Evaluation
+The application that allows you to create the optimal daily menu for you and your family in accordance with the recommendations of Canada's Food Guide.
 
-We are looking for future team members to demonstrate their skill level.  Please review the evaluation criteria so you understand how we will be looking at this assignment.  We are expecting candidates to limit the time spent (and have limited time available) so we are not expecting all the boxes checked.  We look forward to discussing with you which boxes you prioritized and why.  
-
-- [ ] Good commits that show the progression
-- [ ] Simplicity and good design patterns and architectural principals
-- [ ] Proficiency with current versions of tools, frameworks, and languages
-- [ ] User stories accepted by PM
-- [ ] Easy for the reviewer to run or deploy
-- [ ] Test one component with an automated test
-- [ ] Apply one DevOps principal 
-- [ ] Demonstrate one Security best practice
-- [ ] Illustrates Git and Github best practices 
-- [ ] Solid readme 
-
-# Features
+---
+## About project
 
 The Government of Canada wishes to provide the Canada Food Guide as an online service to improve the health of Canadians. To test the idea an MVP was outlined by the product owner.  They are looking to adopt modern cloud-based methodologies to deploy a scalable healthy eating API.  
 
@@ -38,27 +26,33 @@ I want to see an optimal daily menu for my family
 And I want a breakdown per family member  
 So that I can improve the health of my family
 
-# Data 
+---
 
-Data is provided under the `/data` folder. 
+## Development
+This project uses [Create React App](https://github.com/facebook/create-react-app) with the `typescript` preset.
 
-# Expectations
+`npm start` – run app in dev mode
 
-For frontend developers:
-- We expect you to use modern `React`, only functional components with hooks, no classes.
-- We expect your submission to be in ts/tsx.
-- We also expect you to use modern css and html. The resulting should be responsive.
-- The UX and UI design of the app will be taken into account.
-- We do not expect you to design and develop the API, load the CSV data directly and process the data on the client side is good enough. 
+`npm run build` – build production version to the `build` folder
 
+`npm run test` – runs the test watcher in an interactive mode
 
-# Submissions
+`npm run eject` – move all the configuration and build  will directly into the project folder
 
-- Candidates are encouraged to provide these results on their personal Github profile `https://github.com/candidate/signal` as a public repo or alternatively a private repo.  
+`npm run prepare` – init git hooks using [husky](https://github.com/typicode/husky)
 
-- Downloading and initiallizing a new repo is preferable to forking as other candidates may see your public fork.  
+`npm run generate-data` – convert data from CSV to Javascript arrays and create `.js` file containing generated arrays 
 
-*If private repo please add `jack-sensorup` as external collaborators, if for frontend, please add `xwen-sensorup` as external collaborators*
+We recommend to setup [Commitizen](https://github.com/commitizen/cz-cli) to make beautiful commit messages. Also, you can consider setup [Prettier](https://github.com/prettier/prettier)  extension into your favorite editor to take more from this powerful utility.
 
+## TODO
 
-
+- [x] Setup project configuration
+- [x] Allow user to enter family member's data which will be used to build daily menu 
+- [x] Calculate daily menu
+- [x] Show the daily menu with a breakdown per family member
+- [x] Add readme
+- [x] Deploy to [Vercel](https://vercel.com/)
+- [ ] Style the app
+- [ ] Add tests
+- [ ] Setup CI using [GitHub Actions](https://github.com/features/actions)
