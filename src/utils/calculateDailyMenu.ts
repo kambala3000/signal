@@ -12,12 +12,14 @@ import {
 } from '../types';
 import findServings from './findServings';
 
+/** Combines same products and calculates their 'quantity' */
 const countQuantity = (products: Product[]): ProductWithQuantity[] => {
   const groupedByName = groupBy(products, 'food');
   const productsByGroup = values(groupedByName);
   return productsByGroup.map(group => ({ ...group[0], quantity: group.length }));
 };
 
+/** Calculates daily menu for each family member */
 const calculateDailyMenu = (familyData: FamilyMemberData[]): FamilyMemberDataWithMenu[] =>
   familyData.map(memberData => {
     const servings = findServings(memberData);

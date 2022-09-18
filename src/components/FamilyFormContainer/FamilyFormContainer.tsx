@@ -10,10 +10,10 @@ const FamilyFormContainer: React.FC = () => {
   const [familyData, dispatch] = useReducer(reducer, initialState);
   const [familyMenu, setFamilyMenu] = useState<FamilyMemberDataWithMenu[]>([]);
 
-  // For now just ensure that name, age and gender is set for every family member
   const isSubmitDisabled = useMemo(
     () =>
       familyData.length === 0 ||
+      // For now just ensure that name, age and gender is set for every family member
       !familyData.every(member => !!member.name && !!member.age && !!member.gender),
     [familyData]
   );

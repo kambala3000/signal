@@ -1,6 +1,7 @@
 import uniqueId from 'lodash/uniqueId';
 import { Action, ActionType, FamilyMemberData } from '../../types';
 
+/** Returns initial data for family member */
 const getInitialFamilyMemberData = (): FamilyMemberData => ({
   memberId: uniqueId(),
   name: '',

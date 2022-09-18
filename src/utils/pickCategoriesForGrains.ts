@@ -7,6 +7,7 @@ const pickCategoriesForGrains = (servingsCount: number) => {
   const categories: string[] = [];
 
   for (let i = 0; i < servingsCount; i++) {
+    // Fill the list with whole grain category until it take up half the list
     if (i < servingsCount / 2) {
       categories.push(GRAINS_CATEGORIES.Whole);
       continue;

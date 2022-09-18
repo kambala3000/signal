@@ -1,3 +1,4 @@
+/** Returns random integer from the provided range */
 const getRandomInt = (min: number, max: number) => {
   min = Math.ceil(min);
   max = Math.floor(max);

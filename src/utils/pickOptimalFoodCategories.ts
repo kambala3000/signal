@@ -6,9 +6,17 @@ import getRandomInt from './getRandomIntInRange';
 import { FamilyMemberData, ServingsDataWithRange } from '../types';
 import { FOOD_GROUPS } from './constants';
 
+/**
+ * Transforms servings range to a precise number on a random basis,
+ * i.e. [6, 8] => 7
+ */
 const calculateServingsCount = (servingsRange: number[]) =>
   servingsRange.length > 1 ? getRandomInt(servingsRange[0], servingsRange[1]) : servingsRange[0];
 
+/**
+ * Based on a food group and a number of servings,
+ * creates the optimal list of food categories for the day
+ */
 const pickOptimalFoodCategories = (
   servingsData: ServingsDataWithRange,
   memberData: FamilyMemberData
@@ -16,6 +24,7 @@ const pickOptimalFoodCategories = (
   const servingsCount = calculateServingsCount(servingsData.servingsRange);
 
   switch (servingsData.fgid) {
+    // Every food group has its own daily recommendations
     case FOOD_GROUPS.VegetablesAndFruit: {
       return pickCategoriesForVegetables(servingsCount);
     }
