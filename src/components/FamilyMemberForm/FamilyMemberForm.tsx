@@ -6,15 +6,23 @@ import { AGE_OPTIONS } from './constants';
 interface Props {
   familyMemberData: FamilyMemberData;
   handleMemberDataChange: (payload: Partial<FamilyMemberData>) => void;
+  removeFamilyMember: (memberId: string) => void;
 }
 
-const FamilyMemberForm: React.FC<Props> = ({ familyMemberData, handleMemberDataChange }) => {
+const FamilyMemberForm: React.FC<Props> = ({
+  familyMemberData,
+  handleMemberDataChange,
+  removeFamilyMember,
+}) => {
   const onDataChange = (data: Partial<FamilyMemberData>) =>
     // Always include 'memberId' to change proper data in reducer
     handleMemberDataChange({ ...data, memberId: familyMemberData.memberId });
 
   return (
     <div>
+      <button type="button" onClick={() => removeFamilyMember(familyMemberData.memberId)}>
+        -
+      </button>
       <label>
         Name
         <input

@@ -1,6 +1,7 @@
-import React, { useReducer, useCallback, useState } from 'react';
+import React, { useReducer, useState, useMemo, useCallback } from 'react';
 
-import FamilyMemberForm from '../FamilyMemberForm';
+import FamilyMenu from '../FamilyMenu';
+import FamilyForm from './FamilyForm';
 import { reducer, initialState } from './stateHelpers';
 import calculateDailyMenu from '../../utils/calculateDailyMenu';
 import { ActionType, FamilyMemberData, FamilyMemberDataWithMenu } from '../../types';
@@ -9,52 +10,50 @@ const FamilyFormContainer: React.FC = () => {
   const [familyData, dispatch] = useReducer(reducer, initialState);
   const [familyMenu, setFamilyMenu] = useState<FamilyMemberDataWithMenu[]>([]);
 
+  // For now just ensure that name, age and gender is set for every family member
+  const isSubmitDisabled = useMemo(
+    () =>
+      familyData.length === 0 ||
+      !familyData.every(member => !!member.name && !!member.age && !!member.gender),
+    [familyData]
+  );
+
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const menuByMembers = calculateDailyMenu(familyData);
-    console.log('menuByMembers', menuByMembers);
     setFamilyMenu(menuByMembers);
   };
+  const resetForm = () => {
+    setFamilyMenu([]);
+    dispatch({ type: ActionType.RESET_DATA });
+  };
 
-  const handleMemberDataChange = useCallback(
-    (payload: Partial<FamilyMemberData>) =>
-      dispatch({ type: ActionType.CHANGE_MEMBER_DATA, payload }),
+  const handleMemberDataChange = (payload: Partial<FamilyMemberData>) =>
+    dispatch({ type: ActionType.CHANGE_MEMBER_DATA, payload });
+
+  const addFamilyMember = useCallback(
+    () => dispatch({ type: ActionType.ADD_FAMILY_MEMBER }),
+    [dispatch]
+  );
+  const removeFamilyMember = useCallback(
+    (memberId: string) =>
+      dispatch({ type: ActionType.REMOVE_FAMILY_MEMBER, payload: { memberId } }),
     [dispatch]
   );
 
   return (
     <div>
       {familyMenu.length ? (
-        <div>
-          <button onClick={() => setFamilyMenu([])}>Back</button>
-        </div>
+        <FamilyMenu familyDataWithMenu={familyMenu} resetForm={resetForm} />
       ) : (
-        <>
-          <h1>
-            Welcome! Please fill out the form below and we will calculate the optimal daily menu for
-            you and your family.
-          </h1>
-          <form onSubmit={onFormSubmit}>
-            {familyData.map(familyMemberData => (
-              <FamilyMemberForm
-                key={familyMemberData.memberId}
-                familyMemberData={familyMemberData}
-                handleMemberDataChange={handleMemberDataChange}
-              />
-            ))}
-
-            <button
-              type="button"
-              onClick={e => {
-                e.preventDefault();
-                dispatch({ type: ActionType.ADD_FAMILY_MEMBER });
-              }}
-            >
-              + Add family member
-            </button>
-            <button type="submit">Submit</button>
-          </form>
-        </>
+        <FamilyForm
+          familyData={familyData}
+          handleMemberDataChange={handleMemberDataChange}
+          addFamilyMember={addFamilyMember}
+          removeFamilyMember={removeFamilyMember}
+          onFormSubmit={onFormSubmit}
+          isSubmitDisabled={isSubmitDisabled}
+        />
       )}
     </div>
   );

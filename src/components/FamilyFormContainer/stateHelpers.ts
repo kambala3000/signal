@@ -21,6 +21,12 @@ export const reducer = (state: FamilyMemberData[], action: Action) => {
         data.memberId === action.payload?.memberId ? { ...data, ...action.payload } : data
       );
     }
+    case ActionType.REMOVE_FAMILY_MEMBER: {
+      return state.filter(data => data.memberId !== action.payload?.memberId);
+    }
+    case ActionType.RESET_DATA: {
+      return [getInitialFamilyMemberData()];
+    }
     default: {
       return state;
     }

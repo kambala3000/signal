@@ -13,7 +13,7 @@ export interface FamilyMemberData {
 
 export interface Product {
   fgcat_id: string;
-  fgid: FoodCategory;
+  fgid: FoodGroup;
   food: string;
   srvg_sz: string;
 }
@@ -22,7 +22,7 @@ export interface ProductWithQuantity extends Product {
   quantity: number;
 }
 
-export enum FoodCategory {
+export enum FoodGroup {
   VegetablesAndFruit = 'vf',
   Grains = 'gr',
   MilkAndAlts = 'mi',
@@ -30,7 +30,7 @@ export enum FoodCategory {
 }
 
 export type Menu = {
-  [key in FoodCategory]: ProductWithQuantity[];
+  [key in FoodGroup]: ProductWithQuantity[];
 };
 
 export interface FamilyMemberDataWithMenu extends FamilyMemberData {
@@ -40,6 +40,8 @@ export interface FamilyMemberDataWithMenu extends FamilyMemberData {
 export enum ActionType {
   ADD_FAMILY_MEMBER = 'ADD_FAMILY_MEMBER',
   CHANGE_MEMBER_DATA = 'CHANGE_MEMBER_DATA',
+  REMOVE_FAMILY_MEMBER = 'REMOVE_FAMILY_MEMBER',
+  RESET_DATA = 'RESET_DATA',
 }
 
 export interface Action {
@@ -48,7 +50,7 @@ export interface Action {
 }
 
 export interface ServingsData {
-  fgid: FoodCategory;
+  fgid: FoodGroup;
   gender: string;
   ages: string;
   servings: string;

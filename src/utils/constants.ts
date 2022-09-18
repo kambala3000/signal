@@ -1,10 +1,17 @@
-import { FoodCategory } from '../types';
+import { FoodGroup } from '../types';
 
-export const FOOD_GROUPS: { [key: string]: FoodCategory } = {
-  VegetablesAndFruit: FoodCategory.VegetablesAndFruit,
-  Grains: FoodCategory.Grains,
-  MilkAndAlts: FoodCategory.MeatAndAlts,
-  MeatAndAlts: FoodCategory.MeatAndAlts,
+export const FOOD_GROUP_TITLES = {
+  [FoodGroup.VegetablesAndFruit]: 'Vegetables and Fruit',
+  [FoodGroup.Grains]: 'Grains',
+  [FoodGroup.MilkAndAlts]: 'Milk and Alternatives',
+  [FoodGroup.MeatAndAlts]: 'Meat and Alternatives',
+};
+
+export const FOOD_GROUPS: { [key: string]: FoodGroup } = {
+  VegetablesAndFruit: FoodGroup.VegetablesAndFruit,
+  Grains: FoodGroup.Grains,
+  MilkAndAlts: FoodGroup.MilkAndAlts,
+  MeatAndAlts: FoodGroup.MeatAndAlts,
 };
 
 export const FOOD_GROUPS_LIST = Object.values(FOOD_GROUPS);
