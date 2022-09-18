@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FamilyMemberData, Gender } from '../FamilyFormContainer/types';
+import { FamilyMemberData, Gender } from '../../types';
 import { AGE_OPTIONS } from './constants';
 
 interface Props {

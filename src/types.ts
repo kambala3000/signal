@@ -20,3 +20,11 @@ export interface Action {
   type: ActionType;
   payload?: Partial<FamilyMemberData>;
 }
+
+export type ServingsDataRecord = {
+  fgid: string;
+  gender: string;
+  ages: string;
+  servings: string;
+  servingsRange: number[];
+};

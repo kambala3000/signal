@@ -1,14 +1,19 @@
-import React, { useReducer, useCallback } from 'react';
+import React, { useReducer, useCallback, useState } from 'react';
 
 import FamilyMemberForm from '../FamilyMemberForm';
 import { reducer, initialState } from './stateHelpers';
-import { ActionType, FamilyMemberData } from './types';
+import calculateDailyMenu from '../../utils/calculateDailyMenu';
+import { ActionType, FamilyMemberData } from '../../types';
 
 const FamilyFormContainer: React.FC = () => {
   const [familyData, dispatch] = useReducer(reducer, initialState);
+  const [familyMenu, setFamilyMenu] = useState<any[]>([]);
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const menuByMembers = calculateDailyMenu(familyData);
+    console.log('menuByMembers', menuByMembers);
+    setFamilyMenu(menuByMembers);
   };
 
   const handleMemberDataChange = useCallback(
@@ -19,30 +24,38 @@ const FamilyFormContainer: React.FC = () => {
 
   return (
     <div>
-      <h1>
-        Welcome! Please fill out the form below and we will calculate the optimal daily menu for you
-        and your family.
-      </h1>
-      <form onSubmit={onFormSubmit}>
-        {familyData.map(familyMemberData => (
-          <FamilyMemberForm
-            key={familyMemberData.memberId}
-            familyMemberData={familyMemberData}
-            handleMemberDataChange={handleMemberDataChange}
-          />
-        ))}
+      {familyMenu.length ? (
+        <div>
+          <button onClick={() => setFamilyMenu([])}>Back</button>
+        </div>
+      ) : (
+        <>
+          <h1>
+            Welcome! Please fill out the form below and we will calculate the optimal daily menu for
+            you and your family.
+          </h1>
+          <form onSubmit={onFormSubmit}>
+            {familyData.map(familyMemberData => (
+              <FamilyMemberForm
+                key={familyMemberData.memberId}
+                familyMemberData={familyMemberData}
+                handleMemberDataChange={handleMemberDataChange}
+              />
+            ))}
 
-        <button
-          type="button"
-          onClick={e => {
-            e.preventDefault();
-            dispatch({ type: ActionType.ADD_FAMILY_MEMBER });
-          }}
-        >
-          + Add family member
-        </button>
-        <button type="submit">Submit</button>
-      </form>
+            <button
+              type="button"
+              onClick={e => {
+                e.preventDefault();
+                dispatch({ type: ActionType.ADD_FAMILY_MEMBER });
+              }}
+            >
+              + Add family member
+            </button>
+            <button type="submit">Submit</button>
+          </form>
+        </>
+      )}
     </div>
   );
 };

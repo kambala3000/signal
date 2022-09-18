@@ -1,5 +1,5 @@
 import uniqueId from 'lodash/uniqueId';
-import { Action, ActionType, FamilyMemberData } from './types';
+import { Action, ActionType, FamilyMemberData } from '../../types';
 
 const getInitialFamilyMemberData = (): FamilyMemberData => ({
   memberId: uniqueId(),
