@@ -1,10 +1,10 @@
 import { SERVINGS_DATA } from '../generated';
-import { FamilyMemberData, ServingsDataRecord } from '../types';
+import { FamilyMemberData, ServingsData, ServingsDataWithRange } from '../types';
 import { FOOD_GROUPS_LIST } from './constants';
 
 const findServings = (memberData: FamilyMemberData) =>
-  FOOD_GROUPS_LIST.reduce<ServingsDataRecord[]>((acc, foodGroup) => {
-    const servingsData = SERVINGS_DATA.find(
+  FOOD_GROUPS_LIST.reduce<ServingsDataWithRange[]>((acc, foodGroup) => {
+    const servingsData = (SERVINGS_DATA as ServingsData[]).find(
       record =>
         record.fgid === foodGroup &&
         record.gender === memberData.gender &&

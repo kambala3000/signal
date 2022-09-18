@@ -3,11 +3,11 @@ import React, { useReducer, useCallback, useState } from 'react';
 import FamilyMemberForm from '../FamilyMemberForm';
 import { reducer, initialState } from './stateHelpers';
 import calculateDailyMenu from '../../utils/calculateDailyMenu';
-import { ActionType, FamilyMemberData } from '../../types';
+import { ActionType, FamilyMemberData, FamilyMemberDataWithMenu } from '../../types';
 
 const FamilyFormContainer: React.FC = () => {
   const [familyData, dispatch] = useReducer(reducer, initialState);
-  const [familyMenu, setFamilyMenu] = useState<any[]>([]);
+  const [familyMenu, setFamilyMenu] = useState<FamilyMemberDataWithMenu[]>([]);
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
