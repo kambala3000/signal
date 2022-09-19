@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 24px;
+  padding-top: 24px;
+}
+.container:not(:last-child) {
+  border-bottom: 1px solid #8888;
+}
+
+.rowsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 16px;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+}
+
+.formRow:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+.inputLabel:not(:last-child) {
+  margin-right: 16px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  align-self: end;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+.formInput {
+  margin-top: 4px;
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+
+.formSelect {
+  margin-top: 4px;
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+
+.checkboxInput {
+  display: block;
+  margin: 0 8px 0 0;
+  width: 16px;
+  height: 16px;
+}
+
+.removeMemberBtn {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 560px) {
+  .container {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .rowsWrapper {
+    margin-right: 0;
+  }
+
+  .formRow {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+  .formRow:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .inputLabel {
+    margin-bottom: 16px;
+  }
+  .inputLabel:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .checkboxLabel {
+    align-self: auto;
+  }
+
+  .removeMemberBtn {
+    margin-bottom: 16px;
+  }
+}

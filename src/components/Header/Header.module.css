@@ -1,0 +1,11 @@
+.appHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-weight: 500;
+}
+
+.logoWrapper {
+  margin-right: 8px;
+}

@@ -1,1 +1,1 @@
-export { default } from './FamilyMemberForm';
+export { default } from './FamilyMemberFormItem';

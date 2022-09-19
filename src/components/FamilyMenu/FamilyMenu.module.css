@@ -1,0 +1,41 @@
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+.itemWrapper {
+  padding: 16px;
+  border: 1px solid #8888;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.memberInfoRow {
+  margin: 8px 0;
+}
+
+.memberName {
+  margin: 0 0 16px;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+.foodGroup {
+  margin-top: 32px;
+}
+
+.foodGroup p {
+  margin: 8px 0;
+}
+
+.foodGroupTitle {
+  margin: 0 0 16px;
+}

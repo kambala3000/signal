@@ -1,0 +1,26 @@
+.formHeader {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 16px 0 12px;
+}
+
+.footerButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.footerBtn {
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 560px) {
+  .footerButtonsWrapper {
+    flex-direction: column;
+  }
+
+  .footerBtn:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}

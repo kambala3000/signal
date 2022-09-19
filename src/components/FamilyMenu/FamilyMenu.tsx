@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { FamilyMemberDataWithMenu } from '../../types';
 import FamilyMenuItem from './FamilyMenuItem';
+import styles from './FamilyMenu.module.css';
 
 interface Props {
   familyDataWithMenu: FamilyMemberDataWithMenu[];
@@ -9,11 +11,13 @@ interface Props {
 
 const FamilyMenu: React.FC<Props> = ({ familyDataWithMenu, resetForm }) => (
   <div>
-    <h1>Here is your daily menu!</h1>
+    <div className={styles.titleWrapper}>
+      <h1 className={styles.title}>Here is your daily menu!</h1>
+      <button onClick={resetForm}>Back</button>
+    </div>
     {familyDataWithMenu.map(familyMemberData => (
       <FamilyMenuItem key={familyMemberData.memberId} familyMemberData={familyMemberData} />
     ))}
-    <button onClick={resetForm}>Back</button>
   </div>
 );
 
