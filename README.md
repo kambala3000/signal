@@ -45,7 +45,7 @@ This project uses [Create React App](https://github.com/facebook/create-react-ap
 
 We recommend to setup [Commitizen](https://github.com/commitizen/cz-cli) to make beautiful commit messages. Also, you can consider setup [Prettier](https://github.com/prettier/prettier)  extension into your favorite editor to take more from this powerful utility.
 
-## TODO
+## What is done
 
 - [x] Setup project configuration
 - [x] Allow user to enter family member's data which will be used to build daily menu 
@@ -53,6 +53,11 @@ We recommend to setup [Commitizen](https://github.com/commitizen/cz-cli) to make
 - [x] Show the daily menu with a breakdown per family member
 - [x] Add readme
 - [x] Deploy to [Vercel](https://vercel.com/)
-- [ ] Style the app
-- [ ] Add tests
+- [x] Basic styling
+
+## TODO
+- [ ] Configure PostCSS so we will be able to use nesting in stylesheets. [Track this issue](https://github.com/facebook/create-react-app/issues/9604).
+- [ ] Write tests for utils and components
+- [ ] Choose a lightweight UI library to use in the app 
+- [ ] Improve UI design
 - [ ] Setup CI using [GitHub Actions](https://github.com/features/actions)
