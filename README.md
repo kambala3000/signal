@@ -2,7 +2,7 @@
 
 https://signal-six.vercel.app/
 
-The application that allows you to create the optimal daily menu for you and your family in accordance with the recommendations of Canada's Food Guide.
+The application allows you to create the optimal daily menu for you and your family in accordance with the recommendations of Canada's Food Guide.
 
 ---
 ## About project
@@ -35,7 +35,7 @@ This project uses [Create React App](https://github.com/facebook/create-react-ap
 
 `npm run build` – build production version to the `build` folder
 
-`npm run test` – runs the test watcher in an interactive mode
+`npm run test` – run the test watcher in an interactive mode
 
 `npm run eject` – move all the configuration and build  will directly into the project folder
 
